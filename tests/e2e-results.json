@@ -1,0 +1,33 @@
+{
+  "environment": {
+    "astrbot_version": "4.28.2",
+    "installation": "isolated editable local plugin installation",
+    "chat_model": "gpt-4.1-mini through the generic OpenAI-compatible source",
+    "marketplace_installation": "not tested; AstrBot Cloud listing pending"
+  },
+  "primary_case": {
+    "version": "8.1",
+    "mode": "fast",
+    "hd": false,
+    "split_images": false,
+    "generation_tool": "midjourney_imagine",
+    "generation_tool_calls": 1,
+    "lookup_tool": "midjourney_get_task",
+    "lookup_tool_calls_in_chat": 2,
+    "lookup_note": "The first lookup returned pending; the second lookup of the same task ID returned terminal success. No second generation was submitted.",
+    "task_id": "558a32cb-da54-4948-b684-02b2301013dd",
+    "trace_id": "7cea0e6c-cd45-4d7e-a1a7-9a3072eb4732",
+    "terminal_status": "succeeded",
+    "grid_image_url": "https://platform2.cdn.acedata.cloud/midjourney/558a32cb-da54-4948-b684-02b2301013dd.png?imageMogr2/thumbnail/!50p",
+    "media_http_status": 200,
+    "media_content_type": "image/png",
+    "image_width": 1024,
+    "image_height": 1024,
+    "usage_api_path": "/midjourney/imagine",
+    "usage_status_code": 200,
+    "task_cost_credits": 0.216,
+    "usage_original_credits": 0.216,
+    "usage_deducted_credits": 0.216
+  },
+  "scope_limit": "One V8.1 fast grid and same-task lookup were run through AstrBot chat. Other versions and split output were validated structurally but not generated. Official market installation remains open."
+}
