@@ -2,7 +2,7 @@
 
 Generate one Midjourney image grid in an AstrBot conversation through your own Ace Data Cloud account. `midjourney_imagine` submits one job; `midjourney_get_task` queries the same task until the final grid is ready.
 
-[简体中文指南](readme/README_zh_Hans.md) · [Imagine API](https://platform.acedata.cloud/documents/midjourney-imagine) · [Tasks API](https://platform.acedata.cloud/documents/midjourney-tasks) · [Current prices](https://platform.acedata.cloud/services/midjourney)
+[简体中文指南](readme/README_zh_Hans.md) · [Imagine API](https://platform.acedata.cloud/documents/midjourney-imagine?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_documents_midjourney_imagine) · [Tasks API](https://platform.acedata.cloud/documents/midjourney-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_documents_midjourney_tasks) · [Current prices](https://platform.acedata.cloud/services/midjourney?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_services_midjourney)
 
 ## Find and install
 
@@ -12,7 +12,9 @@ The official AstrBot Cloud listing is pending. After the source release is merge
 
 ## Configure your key
 
-In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications), copy a generation API key from your General application or create a key that permits both `/midjourney/imagine` and `/midjourney/tasks`. Confirm your account has Midjourney access, then check the current price and balance before submitting. Paste the key into the plugin's **Ace Data Cloud generation API key with Midjourney access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
+New account? Register and sign in first. If the Applications page has no General application yet, choose **Initialize General Application**, then continue with the key steps below.
+
+In [Ace Data Cloud Applications](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_api_key), copy a generation API key from your General application or create a key that permits both `/midjourney/imagine` and `/midjourney/tasks`. Confirm your account has Midjourney access, then check the current price and balance before submitting. Paste the key into the plugin's **Ace Data Cloud generation API key with Midjourney access** setting. Do not add `Bearer ` or use a `platform-...` management token. AstrBot masks the field in WebUI but stores the original value in its data directory, which should be protected.
 
 Select a chat model that supports tool calling. Allow both Midjourney tools in the conversation's profile and persona.
 
