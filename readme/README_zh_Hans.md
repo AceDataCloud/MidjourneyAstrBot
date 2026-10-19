@@ -2,19 +2,43 @@
 
 通过您自己的 Ace Data Cloud 账号，在 AstrBot 对话中生成一组 Midjourney 图片。`midjourney_imagine` 提交一次任务，`midjourney_get_task` 用同一个任务 ID 查询最终的四宫格。
 
-[English guide](../README.md) · [Imagine 接口](https://platform.acedata.cloud/documents/midjourney-imagine) · [任务接口](https://platform.acedata.cloud/documents/midjourney-tasks) · [当前价格](https://platform.acedata.cloud/services/midjourney)
+这是 **Ace Data Cloud 提供的 Midjourney 独立集成**，不是 Midjourney 厂商或 AstrBot 团队的官方插件。请使用自己的 Ace API Key。
 
-## 查找与安装
+[English guide](../README.md) · [Imagine 接口](https://platform.acedata.cloud/documents/midjourney-imagine?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_documents_midjourney_imagine) · [任务接口](https://platform.acedata.cloud/documents/midjourney-tasks?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_documents_midjourney_tasks) · [当前价格](https://platform.acedata.cloud/services/midjourney?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_services_midjourney)
 
-在 AstrBot WebUI 中打开 **扩展 → 插件 → AstrBot 插件市场**，搜索 **Midjourney**。核对卡片名称 **Midjourney by Ace Data Cloud**、作者 **acedatacloud** 和[当前服务图标](https://cdn.acedata.cloud/wto43b.png)，安装后在**已安装**页检查加载状态。
+## 1. 查找与安装
 
-官方 AstrBot Cloud 上架仍待完成。源码合并后，可通过**已安装 → 安装 (+) → 从 URL 安装**并填写 `https://github.com/AceDataCloud/MidjourneyAstrBot` 预览。通过 URL 安装不代表已在官方市场上架。
+当前上游菜单为 **插件 → 顶部插件 → 插件市场 / 已安装**；旧英文版本可能仍写 Extensions。在插件市场搜索 **Midjourney**，核对 **Midjourney by Ace Data Cloud**、作者 **acedatacloud** 与对应服务图标。
+
+**2026-10-19 发布状态：尚未在官方市场公开上架。** 上面的搜索/安装是正式上架后的路径；当前不要等待不存在的卡片，请用下一段的仓库地址手动安装。
+
+仓库安装：**插件 → 插件 → 已安装 → 安装插件（+）→ 从链接安装**，输入 `https://github.com/AceDataCloud/MidjourneyAstrBot`。源码已经存在；安装后核启用和加载状态。仓库/文件安装与官方市场安装分别记账。
+
+**访问限制：** 当前 Ace 服务目录将本服务标为私有/受限；安装插件不自动获得服务权限。仅已有对应权限的账户可使用，其他用户应先确认账户资格，不要为试用先发付费请求。此项不是服务已退役的证明。
 
 ## 配置密钥
 
-在 [Ace Data Cloud 应用管理](https://platform.acedata.cloud/console/applications)复制生成 API Key，或创建同时允许 `/midjourney/imagine` 与 `/midjourney/tasks` 的 Key。先确认账号具有 Midjourney 访问权限，再核对当前价格和余额。将 Key 填入插件的 **Ace Data Cloud generation API key with Midjourney access** 配置项，不要添加 `Bearer `，也不要使用 `platform-...` 管理令牌。AstrBot WebUI 会遮蔽显示此字段，但原值保存在数据目录中，请保护该目录。
+首次使用请先注册并登录；如果应用页还没有通用应用，点击 **初始化通用应用（Initialize General Application）**，再按下面步骤管理密钥。
+
+在 [Ace Data Cloud 应用管理](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_api_key)复制生成 API Key，或创建同时允许 `/midjourney/imagine` 与 `/midjourney/tasks` 的 Key。先确认账号具有 Midjourney 访问权限，再核对当前价格和余额。将 Key 填入插件的 **Ace Data Cloud generation API key with Midjourney access** 配置项，不要添加 `Bearer `，也不要使用 `platform-...` 管理令牌。AstrBot WebUI 会遮蔽显示此字段，但原值保存在数据目录中，请保护该目录。
 
 选择支持工具调用的对话模型，并在当前对话的 profile 与 persona 中允许两个 Midjourney 工具。
+
+### Token 图文：复制或创建专用 Key
+
+先[注册或登录 Ace](https://platform.acedata.cloud/console/applications?utm_source=opensource&utm_medium=referral&utm_campaign=evergreen&utm_content=midjourneyastrbot_readme_signup)，打开 **Applications → General application**；没有通用应用时先初始化。图中 **1** 复制现有 Key，**2 Manage Keys → Create** 创建专用 Key。API 限制开启时应包含 `/midjourney/imagine`、`/midjourney/tasks`，并检查账户当前权限、余额与价格。
+
+![Ace 应用页复制 Key 或管理 Key（已脱敏）](../_assets/tutorial/get-api-key-en.png)
+
+专用 Key 可命名为 `AstrBot Midjourney`；到期和限额按需设置。下图中的 `Dify tutorial` 是旧示例名称，不需要照抄。
+
+![创建专用 API Key（共享 Ace 页面，非 AstrBot）](../_assets/tutorial/create-api-key-en.png)
+
+两张图于 **2026-10-19** 复用核验，原拍摄日期未知，凭据/App ID/余额均已脱敏；这是共享 Ace Applications 页面，不是 AstrBot 安装或真实调用证明。[原图来源与限制](../_assets/tutorial/sources.json)。
+
+### 在 AstrBot 填写哪里
+
+打开 **插件 → 插件 → 已安装**，点击 **Midjourney by Ace Data Cloud** 卡片齿轮（插件配置），在 **Ace Data Cloud generation API key with Midjourney access**（字段 `api_key`）粘贴 Key 并保存。只填 Key 本身，不加 `Bearer `；不填到模型提供商或聊天消息。界面遮罩不加密磁盘配置，请保护 AstrBot 数据目录。此处提供准确文字路径；不以假界面代替本插件最新设置截图。
 
 ## 生成一次，然后查询
 

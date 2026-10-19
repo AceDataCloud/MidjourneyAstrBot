@@ -2,7 +2,7 @@ name: astrbot_plugin_midjourney_acedatacloud
 display_name: Midjourney by Ace Data Cloud
 short_desc: Generate a Midjourney image grid and retrieve the final result in chat.
 desc: Submit one Midjourney imagine job through your Ace Data Cloud account, then query the same task ID for its final image grid.
-version: 0.1.0
+version: 0.1.1
 author: acedatacloud
 repo: https://github.com/AceDataCloud/MidjourneyAstrBot
 astrbot_version: ">=4.28.2,<5"
